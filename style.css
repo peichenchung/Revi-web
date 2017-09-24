@@ -9,11 +9,10 @@
 #nav {
   background-color: #ff6600; /* 將nav區域背景設為#ff6600(橘色) */
 
-  width: 100%; /* 設定導覽選單區長度 */
-
   position: fixed; /* 將#nav(導覽列)永遠固定在視窗最左上角 */
   top: 0;
   left: 0;
+  right: 0; /* 才不會缺一塊 也可以用width: 100%代替*/
 
   z-index: 100; /* 讓#nav(導覽列)永遠顯示在最上層 不會被其他元素覆蓋 */
 }
@@ -36,8 +35,8 @@
 
 /* 設定內容之間水平線的樣式 */
 hr.bar {
-  border: 1px solid #ff6600;
-  width: 600px;
+  border: 2px solid #ff6600;
+  width: 80px;
 }
 
 .menu {
@@ -222,4 +221,94 @@ form.contact-form {
 
 .form-row button:active {
   background-color: #407FC7; /* 游標按一下 button背景變色 */
+}
+
+
+              /* 以下加入RWD的CSS設定 */
+
+/* 讓漢堡按鈕和checkbox在電腦版隱藏 */
+@media screen and (min-width: 1024px) {
+  .menu-button,
+  .menu-button-checkbox {
+    display: none;
+  }
+}
+
+/* >>>>>>以下為手機版的CSS<<<<<< */
+
+@media screen and (max-width: 1023px) {
+
+  .container {
+    width: auto;
+  }
+
+  .menu-button { /* 美化漢堡按鈕及調整定位 */
+    float: right;
+    font-size: 25px;
+    line-height: 40px;
+    color: white;
+    background: transparent;
+    padding: 0 15px;
+    border: 0;
+  }
+
+  /* 將 checkbox 的尺寸設定得和漢堡按鈕一模一樣，以便完全覆蓋按鈕 */
+  .menu-button-checkbox {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 55px;
+    height: 40px;
+
+    opacity: 0;
+    /* 讓 checkbox 變成透明，這樣一來，視覺上看起來是在點擊漢堡按鈕，
+       但其實是在點擊 checkbox */
+  }
+
+  /* 同時我們會讓.menu隱藏起來，只有在按下checkbox時才出現 */
+  .menu-button-checkbox:checked ~ .menu {
+    display: block;
+  }
+
+
+  /* 把 ul.menu 排到右半邊去，並美化一下 */
+  .menu {
+    display: none; /* 讓.menu隱藏起來，只有在按下checkbox時才出現 */
+
+    margin-top: 0;
+    padding-left: 0;
+    position: fixed;
+    right: 0;
+    top: 40px;
+    width: 150px;
+    height: 100%;
+  }
+
+  .menu li {
+    border: 0;
+    border-radius: 0;
+  }
+
+  
+  /* 讓父層容器 #my-avatar 的寬度變成 100%，以免下方文字擠上來 */
+  #my-avatar {
+  width: 100%; 
+  }
+
+  /* 將圖片置中處理，並多留一些上下間距 */
+  #my-avatar img {
+  display: block;
+  margin: 15px auto;
+  }
+
+  /* 在手機版上，.item 的寬度會隨著內容自動調整，但最大不會超過 100% */
+  .item {
+    max-width: 100%;
+  }
+  
+  /* 原本電腦版的contact-form寬度是設為50% 在手機版看起來太擠了 所以調整 */
+  form.contact-form {
+    width: 80%;
+  }
+
 }
