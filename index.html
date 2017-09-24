@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Kia Ora!</title>
+  <link type="text/css" rel="stylesheet" href="style.css"><!--導入CSS樣式表-->
+</head>
+
+<body>
+  <div id="nav">
+    <div class="container">
+      <ul class="menu">
+        <li><a href="#about">Who am I</a><!--設定站內連結到about--></li>
+        <li><a href="#my-work">My work</a><!--設定站內連結到my-work--></li>
+        <li><a href="#contact-me">Contact me</a><!--設定站內連結到contact-me--></li>
+      </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div id="content">
+      <div class="container">
+        <div id="about">
+          <div id="my-avatar">
+            <img src="img/my-avatar.jpg" alt="my avatar">
+            <!--透過src(source)屬性來指向圖片的位置-->
+            <!--alt(alternative)萬一圖片無法顯示時的替代文字-->
+          </div>
+          <div id="my-info">
+            <h1>I am Revi Chung</h1>
+            <h3>雖然還是麻瓜 但我的Goal是希望提升成為更全面的網路開發者<br />
+                然後到海外工作！！</h3>
+            <hr />
+            <table><!--加入表格-->
+              <tr><!--table row-->
+                <th>Birth</th><!--table hearder-->
+                <td>1985</td><!--table data-->
+              </tr>
+              <tr>
+                <th>工作經驗</th>
+                <td>>7年，進出口，電商，行銷</td>
+              </tr>
+              <tr>
+                <th>開發技能</th>
+                <td>正在大航道學習HTML, CSS, Ruby on Rails中</td>
+              </tr>
+              <tr>
+                <th>學習經歷</th>
+                <td>
+                  大航道計畫結業, 2018<br />
+                  貿協國企班結業, 2011<br />
+                  台中技術學院畢業, 2007
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <hr class="bar"><!--因為中間留白太多 視覺上再加上一條水平線-->
+        
+        <div id="my-work">
+          <h1>This is my works</h1>
+
+          <div id="my-work-gallery">
+            
+            <div class="item">
+              <img src="http://lorempixel.com/300/300/" alt="my personal site">
+              <div class="item-info">
+                <h3>我的個人網站1</h3>
+                <p>Lorem ipsum dolor sit amet.</p><!--沒有意義的拉丁文-->
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="http://lorempixel.com/300/300/" alt="my personal site">
+              <div class="item-info">
+                <h3>我的個人網站2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem, cum.</p><!--沒有意義的拉丁文-->
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="http://lorempixel.com/300/300/" alt="my personal site">
+              <div class="item-info">
+                <h3>我的個人網站3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur.</p><!--沒有意義的拉丁文-->
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="http://lorempixel.com/300/300/" alt="my personal site">
+              <div class="item-info">
+                <h3>我的個人網站4</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p><!--沒有意義的拉丁文-->
+              </div>
+            </div>
+
+            <div class="item">
+              <img src="http://lorempixel.com/300/300/" alt="my personal site">
+              <div class="item-info">
+                <h3>我的個人網站5</h3>
+                <p>Lorem ipsum dolor sit.</p><!--沒有意義的拉丁文-->
+              </div>
+            </div>
+          
+          </div>
+        </div>
+
+        <hr class="bar"><!--因為中間留白太多 視覺上再加上一條水平線-->
+
+        <div id="contact-me">
+
+          <h1>Contact me</h1>
+
+          <form action="" class="contact-form">
+          <!--如果action空白，就會自動預設為當前的URL-->
+          <!--所以當我們按下表單時，瀏覽器會刷新一次-->
+          <!--因為也沒有指定method，所以會預設為post-->
+
+            <div class="form-row">
+              <label for="name">姓名</label>
+              <!--for屬性指定與label關聯元素的id-->
+              <input id="name" name="name" type="text">
+              <!--瀏覽器會根據name來設定發送到伺服器的request-->
+              <!--表單的接收頁面只接收有name的元素 賦ID的元素通過表單是接收不到值的-->
+              <!--在form裡面，如果不指定name，就不會發送到伺服器端-->
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email">
+            </div>
+
+            <div class="form-row">
+              <label for="message">訊息</label>
+              <textarea name="message" id="message"></textarea>
+              <!--textarea用來建立一個多行的文字輸入欄位 且具有scrollbar功能-->    
+            </div>
+
+            <div class="form-row">
+              <button type="reset">重設</button>
+              <button type="submit">提交</button>
+            </button>
+
+          </form>
+
+        </div>
+      
+      </div>
+    </div>
+</body>
+
+
+</html>

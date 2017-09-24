@@ -1,0 +1,225 @@
+
+              /* 標準程序，將全部box-sizing都改為border-box */
+* {
+  box-sizing: border-box;
+}
+
+              /* 以下為 導覽選單區 的內容樣式設定 */
+
+#nav {
+  background-color: #ff6600; /* 將nav區域背景設為#ff6600(橘色) */
+
+  width: 100%; /* 設定導覽選單區長度 */
+
+  position: fixed; /* 將#nav(導覽列)永遠固定在視窗最左上角 */
+  top: 0;
+  left: 0;
+
+  z-index: 100; /* 讓#nav(導覽列)永遠顯示在最上層 不會被其他元素覆蓋 */
+}
+
+.container {
+  width: 800px; /* 設定container寬度 */
+  margin: 0 auto; /* 將container位置置中(前提是container要有設定寬度) */
+}
+
+#content {
+  /* 得知#nav高度為78之後,為#content加上以下設定,就會下移不會被#nav遮住了 */
+  position: relative;
+  top: 78px;
+  padding: 15px;
+}
+
+#content > .container > div {
+  padding: 78px 0; /* 同上一個設定 在內容區域上方多加入78px的padding */
+}
+
+/* 設定內容之間水平線的樣式 */
+hr.bar {
+  border: 1px solid #ff6600;
+  width: 600px;
+}
+
+.menu {
+  float: right; /* 讓menu的按鈕靠右 */
+}
+
+h1 {
+  text-align: center; /* 讓h1元素置中 */
+}
+
+#about h1 { /* #about的h1的位置例外 用繼承選擇器調整 */
+  margin-bottom: 0;
+  text-align: left;
+}
+
+#my-work-gallery {
+    text-align: center; /* my-work-gallery的圖片置中 */
+}
+
+.menu li { /* 選擇menu類別下的li標籤 */
+  display: inline-block; /* 將li用display改變盒子屬性為inline-block(li預設是block屬性) */
+                         /* 這樣才能讓每個選單項目並排 不會每個項目佔滿一行 */
+
+  width: 150px; /* 設定每個選單項目的寬度 */
+  padding: 10px 0px; /* 與border距離 垂直10px 水平0px */
+
+  border: 1px solid #fff; /* 設定選單項目的border(框線)為1px實心#fff(白色)線 */
+  border-radius: 8px; /* 設定圓角 角度8px */
+
+  list-style-type: none; /* 設定列表的項目符號 */
+  text-align: center; /* 內容置中 */
+  background-color: #ff6600; /* 背景橘色 */
+  color: #fff; /* 內容(字)白色 */
+}
+
+a { /* li元素中插入的站內連結a */
+  display: block; /* 將a元素的display改為block 超連結的有效範圍才能擴張到和li同樣的尺寸 */
+                  /* 因為a元素預設的display為inline 原本的有效範圍只有裡面設定連結的幾個字 */
+  color: #fff; /* 字體白色 */
+  text-decoration: none; /* 讓因為超連結產生的underline消失 */
+}
+
+/* 以下設定當游標移過li元素時 會有樣式的改變 */
+li:hover { /* hover選擇器(是一種pseudo-classes偽類別) 會等游標移過來時 才觸發所設定的樣式 */
+  border: 1px solid #ff6600; /* 游標移過來時 框線變成1px實心橘色(原為白色) */
+  background-color: #fff; /* 游標移過來時 背景變成白色(原為橘色) */
+}
+
+li:hover a { /* 選擇li下的a在游標移過來時觸發的設定樣式 */
+  color: #ff6600; /* 游標移過來時 字體顏色變成橘色(原為白色) */
+  font-weight: 800; /* 設定文字粗細 */
+}
+
+
+               /* 以下為 about me 的內容樣式設定 */
+
+#my-avatar {
+  float: left; /* 讓我的img變成流動元素 */
+               /* float屬性讓原本該一次佔滿一行的block元素變得可以緊靠在一起 */
+               /* 其實此方式已過時 現在的趨勢是用flexbox(未來會教) */
+  margin-right: 40px; /* 在照片和簡介間加入margin */
+}
+
+#my-avatar img {
+  width: 200px; /* 調整相片大小 */
+}
+
+/* 以下調整margin以縮小h1和h3的距離 */
+h1 {
+  margin-bottom: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+table {
+  font-size: normal; /* 設定表格內字體大小 預設(normal)為16px 預設其實不用特地列出 */
+  text-align: left; /* 表格內字靠左 */
+}
+
+th, td {
+  vertical-align: top; /* 設定th,td元素的垂直對齊方式：向上對齊 */
+}
+
+td {
+  color: #666; /* td內容字體顏色設為#666(灰色) */
+  padding-left: 20px; /* 拉開th跟td的距離 也可以從th調整 */
+}
+
+hr {
+  border: 0.5px solid #eee; /* 設定水平線的樣式 */
+}
+
+
+              /* 以下為 my work 的內容樣式設定 */
+
+.item {
+  position: relative; /* relative 從原始位置為原點 進行相對位移 */
+  max-width: 30%; /* 讓.item根據視窗的寬度來決定尺寸??? */
+
+  display: inline-block; /* 調整.item這些block盒子的排列為並排(原本每個盒子都佔滿一整行) */
+  margin: 10px; /* 調整每個.item盒子的間距 */
+}
+
+.item img {
+  width: 100%; /* 在.item 這個容器裡的內容都設為 100% 所以不會超過item */
+}
+
+.item-info {
+  border: 1px solid red; /* 標示用 用完可拿掉 */
+  background-color: rgba(255,255,255,.8); /* 背景半透明 */
+
+  position: absolute; /* absolute 從上層已啟動的position座標原點起算 */
+                      /* 在這裡是從.item項下設定的座標原點起算 */
+
+  /* 以下將top和left位移的距離都設為0，結果就是.item和.item-info的左上角緊貼在一起了 */
+  top: 0;
+  left: 0;
+
+  /* 在.item 這個容器裡的內容都設為 100% 所以不會超過item */
+  width: 100%;
+  height: 100%;
+
+  /* 針對.item-info做調整，讓文字看起來在圖片的正中間 */
+  text-align: center; 
+  padding: 25px 10px;
+
+  /* 將 .item-info 設為透明 等觸發 :hover 事件時，再將透明度成看得到 */
+  opacity: 0;
+}
+
+.item-info:hover {
+  opacity: 1;
+}
+
+
+              /* 以下修改contact me的表單樣式 */
+
+form.contact-form {
+  width: 50%; /* 將表單寬度設為視窗的一半 */
+  margin: 0 auto; /* 將表單置中 */
+}
+
+.form-row {
+  margin-bottom: 15px; /* 改變每航row的間距 */
+}
+
+/* 以下改變輸入框的樣式 */
+.form-row input, .form-row textarea {
+  border-radius: 3px; /* 圓角 */
+  width: 100%;
+  border: 1px solid #D6D9DC;
+  padding: 7px;
+}
+
+/* 預設是使用者可以拖曳元素的右下角來改變大小，
+   但我們使用 resize:none 把這個功能關掉，
+   並將輸入框的高度設為 4 行字 */
+.form-row textarea {
+  resize: none;
+  height: 4em;
+}
+
+/* 以下修改button樣式 */
+
+.form-row button {
+  border: none;
+  border-radius: 3px;
+  padding: 10px 15px;
+  cursor: pointer; /* 改變滑鼠游標的形狀 */
+}
+
+.form-row button[type="submit"] { /* 設定submit按鈕 讓reset和submit按鈕有所區分 */
+  background-color: #5995DA;
+  color: #FFFFFF;
+}
+
+.form-row button:hover {
+  background-color: #76AEED; /* 游標移到button上 button背景變色 */
+}
+
+.form-row button:active {
+  background-color: #407FC7; /* 游標按一下 button背景變色 */
+}
